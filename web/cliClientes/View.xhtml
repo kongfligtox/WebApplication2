@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCliClientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCliClientesLabel_cliId}"/>
+                    <h:outputText value="#{cliClientesController.selected.cliId}" title="#{bundle.ViewCliClientesTitle_cliId}"/>
+                    <h:outputText value="#{bundle.ViewCliClientesLabel_cliNombres}"/>
+                    <h:outputText value="#{cliClientesController.selected.cliNombres}" title="#{bundle.ViewCliClientesTitle_cliNombres}"/>
+                    <h:outputText value="#{bundle.ViewCliClientesLabel_cliApellidos}"/>
+                    <h:outputText value="#{cliClientesController.selected.cliApellidos}" title="#{bundle.ViewCliClientesTitle_cliApellidos}"/>
+                    <h:outputText value="#{bundle.ViewCliClientesLabel_cliCidRuc}"/>
+                    <h:outputText value="#{cliClientesController.selected.cliCidRuc}" title="#{bundle.ViewCliClientesTitle_cliCidRuc}"/>
+                    <h:outputText value="#{bundle.ViewCliClientesLabel_cliTelefonos}"/>
+                    <h:outputText value="#{cliClientesController.selected.cliTelefonos}" title="#{bundle.ViewCliClientesTitle_cliTelefonos}"/>
+                    <h:outputText value="#{bundle.ViewCliClientesLabel_cliEmail}"/>
+                    <h:outputText value="#{cliClientesController.selected.cliEmail}" title="#{bundle.ViewCliClientesTitle_cliEmail}"/>
+                    <h:outputText value="#{bundle.ViewCliClientesLabel_cliDireccion}"/>
+                    <h:outputText value="#{cliClientesController.selected.cliDireccion}" title="#{bundle.ViewCliClientesTitle_cliDireccion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cliClientesController.destroyAndView}" value=""/>
+                <h:link outcome="Edit" value=""/>
+                <h:commandLink action="#{cliClientesController.prepareCreate}" value="" />
+                <h:commandLink action="#{cliClientesController.prepareList}" value=""/>
+                <h:link outcome="/index" value=""/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

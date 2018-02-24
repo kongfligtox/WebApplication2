@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a2ae49bd-495a-4c09-9cd8-55b0fe801db9">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="11"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     chq_chequeo.`CHQ_F_INICIAL` AS chq_chequeo_CHQ_F_INICIAL,
+     chq_chequeo.`CHQ_F_FINAL` AS chq_chequeo_CHQ_F_FINAL,
+     chq_chequeo.`CHQ_ESTADO` AS chq_chequeo_CHQ_ESTADO,
+     chq_chequeo.`CHQ_DETALLE` AS chq_chequeo_CHQ_DETALLE,
+     cab_cabecera.`CAB_ID` AS cab_cabecera_CAB_ID,
+     cab_cabecera.`CAB_TIPO` AS cab_cabecera_CAB_TIPO,
+     cab_cabecera.`CAB_NOMBRE` AS cab_cabecera_CAB_NOMBRE,
+     cab_cabecera.`CAB_FECHA` AS cab_cabecera_CAB_FECHA,
+     cli_clientes.`CLI_NOMBRES` AS cli_clientes_CLI_NOMBRES,
+     cli_clientes.`CLI_APELLIDOS` AS cli_clientes_CLI_APELLIDOS,
+     cli_clientes.`CLI_CID_RUC` AS cli_clientes_CLI_CID_RUC,
+     veh_vehiculos.`VEH_MARCA` AS veh_vehiculos_VEH_MARCA,
+     veh_vehiculos.`VEH_MODELO` AS veh_vehiculos_VEH_MODELO,
+     veh_vehiculos.`VEH_COLOR` AS veh_vehiculos_VEH_COLOR,
+     veh_vehiculos.`VEH_PLACA` AS veh_vehiculos_VEH_PLACA,
+     chq_chequeo.`CAB_ID` AS chq_chequeo_CAB_ID,
+     chq_chequeo.`LDP_ID` AS chq_chequeo_LDP_ID
+FROM
+     `cab_cabecera` cab_cabecera INNER JOIN `chq_chequeo` chq_chequeo ON cab_cabecera.`CAB_ID` = chq_chequeo.`CAB_ID`
+     INNER JOIN `cli_clientes` cli_clientes ON cab_cabecera.`CLI_ID` = cli_clientes.`CLI_ID`
+     INNER JOIN `veh_vehiculos` veh_vehiculos ON cab_cabecera.`VEH_ID` = veh_vehiculos.`VEH_ID`]]>
+	</queryString>
+	<field name="cab_cabecera_CAB_ID" class="java.lang.Integer"/>
+	<field name="cab_cabecera_CAB_TIPO" class="java.lang.String"/>
+	<field name="cab_cabecera_CAB_NOMBRE" class="java.lang.String"/>
+	<field name="cab_cabecera_CAB_FECHA" class="java.sql.Date"/>
+	<field name="cli_clientes_CLI_NOMBRES" class="java.lang.String"/>
+	<field name="cli_clientes_CLI_APELLIDOS" class="java.lang.String"/>
+	<field name="cli_clientes_CLI_CID_RUC" class="java.lang.String"/>
+	<field name="veh_vehiculos_VEH_MARCA" class="java.lang.String"/>
+	<field name="veh_vehiculos_VEH_MODELO" class="java.lang.String"/>
+	<field name="veh_vehiculos_VEH_COLOR" class="java.lang.String"/>
+	<field name="veh_vehiculos_VEH_PLACA" class="java.lang.String"/>
+	<field name="chq_chequeo_CAB_ID" class="java.lang.Integer"/>
+	<field name="chq_chequeo_LDP_ID" class="java.lang.Integer"/>
+	<field name="chq_chequeo_CHQ_F_INICIAL" class="java.sql.Date"/>
+	<field name="chq_chequeo_CHQ_ESTADO" class="java.lang.String"/>
+	<field name="chq_chequeo_CHQ_DETALLE" class="java.lang.String"/>
+	<field name="chq_chequeo_CHQ_F_FINAL" class="java.sql.Date"/>
+	<group name="chq_chequeo_CAB_ID">
+		<groupExpression><![CDATA[$F{chq_chequeo_CAB_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="4"/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="ebd66ee3-686a-4ce8-badd-94879ccb17f9"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="20" y="32" width="272" height="20" uuid="d5d2b171-1084-4e49-933d-94cd877544a3"/>
+					<textElement>
+						<font size="36"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cab_cabecera_CAB_NOMBRE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="308" y="52" width="120" height="20" uuid="d2f3f755-198a-4493-b26b-9b044965c6d8"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cab_cabecera_CAB_FECHA}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="308" y="20" width="120" height="20" uuid="1685597b-f868-4b59-ae9d-c9780289c166"/>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cab_cabecera_CAB_TIPO}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="444" y="20" width="120" height="20" uuid="6b69d7f3-b9c3-4824-a0b0-e4b1c81c495b"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cab_cabecera_CAB_ID}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="112">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="160" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2953689b-95cc-4539-827e-fbf827bc40d5"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="195" y="0" width="160" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9996b3ff-9623-4210-9f96-0d21b5679632"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="395" y="0" width="160" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a21fce28-150f-4d1a-be7e-416ca3d6c6b5"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA/RUC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="42" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5d1a04c7-bf48-40f5-8c0c-d23168bbae15"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="144" y="42" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d0e2db99-4138-45b8-ad93-cfb058d60d79"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MODELO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="290" y="42" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="13d11494-9964-4fa7-9e0e-fcc555d61e11"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COLOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="435" y="41" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e5ffd3f6-5479-490a-9318-db6a21a82201"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLACA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="90" width="50" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2c372d81-2293-4a55-b25d-dbebaf216e62"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="61" y="90" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8e73bf66-b371-45a8-84b1-2cdc09052ff6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F. ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="173" y="90" width="50" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3c5f0794-3ca8-45aa-8f19-53c3601f4dd0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EST.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="235" y="90" width="209" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="57c6268b-e06d-401c-817f-1be598f47abb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="455" y="90" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="cb0a39d4-c313-407a-b561-bf943b0f1d25"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F. SALIDA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="21" width="160" height="20" uuid="1b38e535-8e45-44c0-8edc-70d56c572fa8"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_clientes_CLI_NOMBRES}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="21" width="160" height="20" uuid="5eff1977-3dd2-4caa-a63b-0903f5232433"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_clientes_CLI_APELLIDOS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="395" y="21" width="160" height="20" uuid="96aaed67-f3a3-44a2-8171-e3b73ecfba7d"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_clientes_CLI_CID_RUC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="63" width="120" height="20" uuid="2b8bf46b-7706-4fb2-8cc0-25b648362761"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veh_vehiculos_VEH_MARCA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="144" y="63" width="120" height="20" uuid="32ae4040-e2c6-4d99-be7b-645c07c1359c"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veh_vehiculos_VEH_MODELO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="290" y="63" width="120" height="20" uuid="502875ae-9c39-49ff-aecb-50b59ccbda5b"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veh_vehiculos_VEH_COLOR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="435" y="63" width="120" height="20" uuid="6b4e1816-676b-49a8-bb60-db783a690c70"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veh_vehiculos_VEH_PLACA}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="84" width="555" height="1" uuid="25a38323-426f-4639-9ffd-370a54bfa921"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="50" height="20" uuid="b14cb3ef-898e-48d1-885c-af3e159613b5"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_LDP_ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="62" y="0" width="100" height="20" uuid="760ea97e-bd01-49d7-aec6-12f7f5a5025c"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_F_INICIAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="174" y="0" width="50" height="20" uuid="775afddd-66bd-4d1b-bac4-9c2958a7938a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_ESTADO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="236" y="0" width="209" height="20" uuid="a3278306-2848-4df0-bc90-927e5d05f130"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_DETALLE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="456" y="0" width="100" height="20" uuid="f09f83ca-11c3-4220-86cd-b4ec34a548b3"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_F_FINAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="248bc8b6-423d-4fca-afb6-24a8cf6eff2d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="c19e42b5-d56a-4b6a-b062-c907b35a78a9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="24616ff3-7373-4947-99fd-527f5d26c156"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

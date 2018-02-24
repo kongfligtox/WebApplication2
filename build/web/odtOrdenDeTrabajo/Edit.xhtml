@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOdtOrdenDeTrabajoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8">
+                    <h:outputLabel value="#{bundle.EditOdtOrdenDeTrabajoLabel_odtId}" for="odtId" />
+                    <p:inputText id="odtId" value="#{odtOrdenDeTrabajoController.selected.odtId}" title="#{bundle.EditOdtOrdenDeTrabajoTitle_odtId}" required="true" requiredMessage="#{bundle.EditOdtOrdenDeTrabajoRequiredMessage_odtId}"/>
+                    <h:outputLabel value="#{bundle.EditOdtOrdenDeTrabajoLabel_odtFInicio}" for="odtFInicio" />
+                    <p:inputText id="odtFInicio" value="#{odtOrdenDeTrabajoController.selected.odtFInicio}" title="#{bundle.EditOdtOrdenDeTrabajoTitle_odtFInicio}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:inputText>
+                    <h:outputLabel value="#{bundle.EditOdtOrdenDeTrabajoLabel_odtEstado}" for="odtEstado" />
+                    <p:inputText id="odtEstado" value="#{odtOrdenDeTrabajoController.selected.odtEstado}" title="#{bundle.EditOdtOrdenDeTrabajoTitle_odtEstado}" />
+                    <h:outputLabel value="#{bundle.EditOdtOrdenDeTrabajoLabel_odtFFinal}" for="odtFFinal" />
+                    <p:inputText id="odtFFinal" value="#{odtOrdenDeTrabajoController.selected.odtFFinal}" title="#{bundle.EditOdtOrdenDeTrabajoTitle_odtFFinal}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:inputText>
+                    <h:outputLabel value="#{bundle.EditOdtOrdenDeTrabajoLabel_perId}" for="perId" />
+                    <p:selectOneMenu id="perId" value="#{odtOrdenDeTrabajoController.selected.perId}" title="#{bundle.EditOdtOrdenDeTrabajoTitle_perId}" >
+                        <f:selectItems value="#{perPersonalController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOdtOrdenDeTrabajoLabel_detId}" for="detId" />
+                    <p:selectOneMenu id="detId" value="#{odtOrdenDeTrabajoController.selected.detId}" title="#{bundle.EditOdtOrdenDeTrabajoTitle_detId}" >
+                        <f:selectItems value="#{detDetalleController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{odtOrdenDeTrabajoController.update}" value="#{bundle.EditOdtOrdenDeTrabajoSaveLink}"/>
+                <br/>
+                <h:link outcome="View" value=""/>
+                <h:commandLink action="#{odtOrdenDeTrabajoController.prepareList}" value="" immediate="true"/>
+                <h:link outcome="/index" value="" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

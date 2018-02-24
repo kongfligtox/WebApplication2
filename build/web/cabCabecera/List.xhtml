@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCabCabeceraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCabCabeceraEmpty}" rendered="#{cabCabeceraController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cabCabeceraController.items.rowCount > 0}">
+                    <h:outputText value="#{cabCabeceraController.pagination.pageFirstItem + 1}..#{cabCabeceraController.pagination.pageLastItem + 1}/#{cabCabeceraController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandButton action="#{cabCabeceraController.previous}" value="#{bundle.Previous} #{cabCabeceraController.pagination.pageSize}" rendered="#{cabCabeceraController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton action="#{cabCabeceraController.next}" value="#{bundle.Next} #{cabCabeceraController.pagination.pageSize}" rendered="#{cabCabeceraController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cabCabeceraController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabNombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabNombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabFecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabFecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabRuc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabRuc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabTelefonos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabTelefonos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabEmail}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabEmail}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cabDireccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cabDireccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_vehId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vehId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCabCabeceraTitle_cliId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cliId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cabCabeceraController.prepareView}" value=""/>
+                            <h:outputText value=" "/>
+                            <h:commandButton action="#{cabCabeceraController.prepareEdit}" value="#{bundle.ListCabCabeceraEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandButton action="#{cabCabeceraController.destroy}" value="#{bundle.ListCabCabeceraDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cabCabeceraController.prepareCreate}" value=""/>
+                <br />
+                <br />
+                <h:link outcome="/index" value=""/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

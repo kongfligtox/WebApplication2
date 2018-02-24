@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDetDetalleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_detId}"/>
+                    <h:outputText value="#{detDetalleController.selected.detId}" title="#{bundle.ViewDetDetalleTitle_detId}"/>
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_detCantidad}"/>
+                    <h:outputText value="#{detDetalleController.selected.detCantidad}" title="#{bundle.ViewDetDetalleTitle_detCantidad}"/>
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_detPrecioTotal}"/>
+                    <h:outputText value="#{detDetalleController.selected.detPrecioTotal}" title="#{bundle.ViewDetDetalleTitle_detPrecioTotal}"/>
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_detVSubtotal}"/>
+                    <h:outputText value="#{detDetalleController.selected.detVSubtotal}" title="#{bundle.ViewDetDetalleTitle_detVSubtotal}"/>
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_detIva}"/>
+                    <h:outputText value="#{detDetalleController.selected.detIva}" title="#{bundle.ViewDetDetalleTitle_detIva}"/>
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_detVTotal}"/>
+                    <h:outputText value="#{detDetalleController.selected.detVTotal}" title="#{bundle.ViewDetDetalleTitle_detVTotal}"/>
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_proId}"/>
+                    <h:outputText value="#{detDetalleController.selected.proId}" title="#{bundle.ViewDetDetalleTitle_proId}"/>
+                    <h:outputText value="#{bundle.ViewDetDetalleLabel_cabId}"/>
+                    <h:outputText value="#{detDetalleController.selected.cabId}" title="#{bundle.ViewDetDetalleTitle_cabId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detDetalleController.destroyAndView}" value=""/>
+                <h:link outcome="Edit" value=""/>
+               <h:commandLink action="#{detDetalleController.prepareCreate}" value="" />
+                <h:commandLink action="#{detDetalleController.prepareList}" value=""/>
+                <h:link outcome="/index" value=""/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

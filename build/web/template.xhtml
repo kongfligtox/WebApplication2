@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+    </h:head>
+
+    <h:body>
+        <p:clock pattern="HH:mm dd.MM.yyyy" mode="server" autoSync="true" id="reloj" />
+        <center>
+            <h:form>
+                <p:menubar style="margin-bottom:20px" id="menu">
+                    <p:menuitem icon="ui-icon-home" outcome="/index"/>
+                    <p:submenu label="Opciones" icon="ui-icon-gear">
+                        <p:submenu label="Nuevo" icon="ui-icon-document">
+                            <p:menuitem value="Cabecera" outcome="/cabCabecera/Create" />
+                            <p:menuitem value="Chequeo" outcome="/chqChequeo/Create" />
+                            <p:menuitem value="Cliente" outcome="/cliClientes/Create" />
+                            <p:menuitem value="Detalle" outcome="/detDetalle/Create" />
+                            <p:menuitem value="Lista de Problemas" outcome="/ldpListaDeProblemas/Create" />
+                            <p:menuitem value="Orden de Trabajo" outcome="/odtOrdenDeTrabajo/Create" />
+                            <p:menuitem value="Personal" outcome="/perPersonal/Create" />
+                            <p:menuitem value="Producto" outcome="/proProductos/Create" />
+                            <p:menuitem value="Rol" outcome="/rolRoles/Create" />
+                            <p:menuitem value="Tipo de Producto" outcome="/tdpTipoDeProducto/Create" />
+                            <p:menuitem value="Usuario" outcome="/usuUsuarios/Create" />
+                            <p:menuitem value="Vehiculo" outcome="/vehVehiculos/Create" />
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Modificar" icon="ui-icon-pencil">
+                            <p:menuitem value="Cabecera" outcome="/cabCabecera/List" />
+                            <p:menuitem value="Chequeo" outcome="/chqChequeo/List" />
+                            <p:menuitem value="Cliente" outcome="/cliClientes/List" />
+                            <p:menuitem value="Detalle" outcome="/detDetalle/List" />
+                            <p:menuitem value="Lista de Problemas" outcome="/ldpListaDeProblemas/List" />
+                            <p:menuitem value="Orden de Trabajo" outcome="/odtOrdenDeTrabajo/List" />
+                            <p:menuitem value="Personal" outcome="/perPersonal/List" />
+                            <p:menuitem value="Producto" outcome="/proProductos/List" />
+                            <p:menuitem value="Rol" outcome="/rolRoles/List" />
+                            <p:menuitem value="Tipo de Producto" outcome="/tdpTipoDeProducto/List" />
+                            <p:menuitem value="Usuario" outcome="/usuUsuarios/List" />
+                            <p:menuitem value="Vehiculo" outcome="/vehVehiculos/List" />
+                        </p:submenu>
+                        <p:separator />
+                        <p:menuitem value="Salir" url="http://10.0.0.55:8080/Ingresar/login.jsp" icon="ui-icon-close" />
+                    </p:submenu>
+                    <p:menuitem icon="ui-icon-clipboard" outcome="/ChequeoOrdenTrabajo" value="Orden de Trabajo"/>
+                </p:menubar>
+                <p:sticky target="menu"/>
+                <p:sticky target="reloj"/>
+                <p:panel id="basic" header="Proyecto Integrador" footer="Andrés Solano de la Sala - 4to A Nocturna." style="margin-bottom:20px">
+                    <h1>
+                        <ui:insert name="title">Default Title</ui:insert>
+                    </h1>
+                    <p>
+                        <ui:insert name="body">Default Body</ui:insert>
+                    </p>
+                </p:panel>
+            </h:form>
+        </center>
+    </h:body>
+
+</html>

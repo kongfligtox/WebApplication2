@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Orden de Trabajo
+    </ui:define>
+
+    <ui:define name="body">
+        <!-- <h:panelGroup id="messagePanel" layout="block">
+             <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+         </h:panelGroup>-->
+        <p:tabView>
+            <p:tab title="Cliente">
+        <h:form>
+            <h:outputText value="#{bundle.CreateCliClientesTitle}"></h:outputText> 
+            <br/>
+            <h:panelGrid columns="8">
+                <h:outputLabel value="#{bundle.CreateCliClientesLabel_cliId}" for="cliId" />
+                <p:inputText id="cliId" value="#{cliClientesController.selected.cliId}" title="#{bundle.CreateCliClientesTitle_cliId}" required="true" requiredMessage="#{bundle.CreateCliClientesRequiredMessage_cliId}"/>
+                <h:outputLabel value="#{bundle.CreateCliClientesLabel_cliNombres}" for="cliNombres" />
+                <p:inputText id="cliNombres" value="#{cliClientesController.selected.cliNombres}" title="#{bundle.CreateCliClientesTitle_cliNombres}" />
+                <h:outputLabel value="#{bundle.CreateCliClientesLabel_cliApellidos}" for="cliApellidos" />
+                <p:inputText id="cliApellidos" value="#{cliClientesController.selected.cliApellidos}" title="#{bundle.CreateCliClientesTitle_cliApellidos}" />
+                <h:outputLabel value="#{bundle.CreateCliClientesLabel_cliCidRuc}" for="cliCidRuc" />
+                <p:inputText id="cliCidRuc" value="#{cliClientesController.selected.cliCidRuc}" title="#{bundle.CreateCliClientesTitle_cliCidRuc}" />
+                <h:outputLabel value="#{bundle.CreateCliClientesLabel_cliTelefonos}" for="cliTelefonos" />
+                <p:inputText id="cliTelefonos" value="#{cliClientesController.selected.cliTelefonos}" title="#{bundle.CreateCliClientesTitle_cliTelefonos}" />
+                <h:outputLabel value="#{bundle.CreateCliClientesLabel_cliEmail}" for="cliEmail" />
+                <p:inputText id="cliEmail" value="#{cliClientesController.selected.cliEmail}" title="#{bundle.CreateCliClientesTitle_cliEmail}" />
+                <h:outputLabel value="#{bundle.CreateCliClientesLabel_cliDireccion}" for="cliDireccion" />
+                <p:inputText id="cliDireccion" value="#{cliClientesController.selected.cliDireccion}" title="#{bundle.CreateCliClientesTitle_cliDireccion}" />
+            </h:panelGrid>
+            <br />
+            <h:commandButton action="#{cliClientesController.create}" value="#{bundle.CreateCliClientesSaveLink}" />
+            <br />
+            <h:commandLink action="#{cliClientesController.prepareList}" value="" immediate="true"/>
+            <h:link outcome="/index" value=""/>
+        </h:form>
+            </p:tab>
+        <br/>
+        <br/>
+        <p:tab title="Vehiculo">
+        <h:form>
+            <h:outputText value="#{bundle.CreateVehVehiculosTitle}"></h:outputText>
+            <br/>
+            <h:panelGrid columns="8">
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehId}" for="vehId" />
+                <p:inputText id="vehId" value="#{vehVehiculosController.selected.vehId}" title="#{bundle.CreateVehVehiculosTitle_vehId}" required="true" requiredMessage="#{bundle.CreateVehVehiculosRequiredMessage_vehId}"/>
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehMarca}" for="vehMarca" />
+                <p:inputText id="vehMarca" value="#{vehVehiculosController.selected.vehMarca}" title="#{bundle.CreateVehVehiculosTitle_vehMarca}" />
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehModelo}" for="vehModelo" />
+                <p:inputText id="vehModelo" value="#{vehVehiculosController.selected.vehModelo}" title="#{bundle.CreateVehVehiculosTitle_vehModelo}" />
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehAno}" for="vehAno" />
+                <p:inputText id="vehAno" value="#{vehVehiculosController.selected.vehAno}" title="#{bundle.CreateVehVehiculosTitle_vehAno}" />
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehNMotor}" for="vehNMotor" />
+                <p:inputText id="vehNMotor" value="#{vehVehiculosController.selected.vehNMotor}" title="#{bundle.CreateVehVehiculosTitle_vehNMotor}" />
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehMatricula}" for="vehMatricula" />
+                <p:inputText id="vehMatricula" value="#{vehVehiculosController.selected.vehMatricula}" title="#{bundle.CreateVehVehiculosTitle_vehMatricula}" />
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehColor}" for="vehColor" />
+                <p:inputText id="vehColor" value="#{vehVehiculosController.selected.vehColor}" title="#{bundle.CreateVehVehiculosTitle_vehColor}" />
+                <h:outputLabel value="#{bundle.CreateVehVehiculosLabel_vehPlaca}" for="vehPlaca" />
+                <p:inputText id="vehPlaca" value="#{vehVehiculosController.selected.vehPlaca}" title="#{bundle.CreateVehVehiculosTitle_vehPlaca}" />
+            </h:panelGrid>
+            <br />
+            <h:commandButton action="#{vehVehiculosController.create}" value="#{bundle.CreateVehVehiculosSaveLink}" />
+            <br />
+            <h:commandLink action="#{vehVehiculosController.prepareList}" value="" immediate="true"/>
+            <h:link outcome="/index" value=""/>
+        </h:form>
+        </p:tab>
+        <br/>
+        <br/>
+        <p:tab title="Cabecera">
+        <h:form>
+            <h:outputText value="#{bundle.CreateCabCabeceraTitle}"></h:outputText>
+            <br/>
+            <h:panelGrid columns="8">
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabId}" for="cabId" />
+                <p:inputText id="cabId" value="#{cabCabeceraController.selected.cabId}" title="#{bundle.CreateCabCabeceraTitle_cabId}" required="true" requiredMessage="#{bundle.CreateCabCabeceraRequiredMessage_cabId}"/>
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabTipo}" for="cabTipo" />
+                <p:inputText id="cabTipo" value="#{cabCabeceraController.selected.cabTipo}" title="#{bundle.CreateCabCabeceraTitle_cabTipo}" />
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabNombre}" for="cabNombre" />
+                <p:inputText id="cabNombre" value="#{cabCabeceraController.selected.cabNombre}" title="#{bundle.CreateCabCabeceraTitle_cabNombre}" />
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabFecha}" for="cabFecha" />
+                <p:inputText id="cabFecha" value="#{cabCabeceraController.selected.cabFecha}" title="#{bundle.CreateCabCabeceraTitle_cabFecha}" >
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </p:inputText>
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabRuc}" for="cabRuc" />
+                <p:inputText id="cabRuc" value="#{cabCabeceraController.selected.cabRuc}" title="#{bundle.CreateCabCabeceraTitle_cabRuc}" />
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabTelefonos}" for="cabTelefonos" />
+                <p:inputText id="cabTelefonos" value="#{cabCabeceraController.selected.cabTelefonos}" title="#{bundle.CreateCabCabeceraTitle_cabTelefonos}" />
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabEmail}" for="cabEmail" />
+                <p:inputText id="cabEmail" value="#{cabCabeceraController.selected.cabEmail}" title="#{bundle.CreateCabCabeceraTitle_cabEmail}" />
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabDireccion}" for="cabDireccion" />
+                <p:inputText id="cabDireccion" value="#{cabCabeceraController.selected.cabDireccion}" title="#{bundle.CreateCabCabeceraTitle_cabDireccion}" />
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_vehId}" for="vehId" />
+                <p:selectOneMenu id="vehId" value="#{cabCabeceraController.selected.vehId}" title="#{bundle.CreateCabCabeceraTitle_vehId}" >
+                    <f:selectItems value="#{vehVehiculosController.itemsAvailableSelectOne}"/>
+                </p:selectOneMenu>
+                <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cliId}" for="cliId" />
+                <p:selectOneMenu id="cliId" value="#{cabCabeceraController.selected.cliId}" title="#{bundle.CreateCabCabeceraTitle_cliId}" >
+                    <f:selectItems value="#{cliClientesController.itemsAvailableSelectOne}"/>
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <br />
+            <h:commandButton action="#{cabCabeceraController.create}" value="#{bundle.CreateCabCabeceraSaveLink}" />
+            <br />
+            <h:commandLink action="#{cabCabeceraController.prepareList}" value="" immediate="true"/>
+            <h:link outcome="/index" value=""/>
+        </h:form>
+        </p:tab>
+        <br/>
+        <br/>
+        <p:tab title="Chequeo">
+        <h:form>
+            <h:outputText value="#{bundle.CreateChqChequeoTitle}"></h:outputText>
+            <br/>
+            <h:panelGrid columns="8">
+                <h:outputLabel value="#{bundle.CreateChqChequeoLabel_chqId}" for="chqId" />
+                <p:inputText id="chqId" value="#{chqChequeoController.selected.chqId}" title="#{bundle.CreateChqChequeoTitle_chqId}" required="true" requiredMessage="#{bundle.CreateChqChequeoRequiredMessage_chqId}"/>
+                <h:outputLabel value="#{bundle.CreateChqChequeoLabel_chqFInicial}" for="chqFInicial" />
+                <p:inputText id="chqFInicial" value="#{chqChequeoController.selected.chqFInicial}" title="#{bundle.CreateChqChequeoTitle_chqFInicial}" >
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </p:inputText>
+                <h:outputLabel value="#{bundle.CreateChqChequeoLabel_chqFFinal}" for="chqFFinal" />
+                <p:inputText id="chqFFinal" value="#{chqChequeoController.selected.chqFFinal}" title="#{bundle.CreateChqChequeoTitle_chqFFinal}" >
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </p:inputText>
+                <h:outputLabel value="#{bundle.CreateChqChequeoLabel_chqEstado}" for="chqEstado" />
+                <p:inputText id="chqEstado" value="#{chqChequeoController.selected.chqEstado}" title="#{bundle.CreateChqChequeoTitle_chqEstado}" />
+                <h:outputLabel value="#{bundle.CreateChqChequeoLabel_chqDetalle}" for="chqDetalle" />
+                <p:inputText id="chqDetalle" value="#{chqChequeoController.selected.chqDetalle}" title="#{bundle.CreateChqChequeoTitle_chqDetalle}" />
+                <h:outputLabel value="#{bundle.CreateChqChequeoLabel_ldpId}" for="ldpId" />
+                <p:selectOneMenu id="ldpId" value="#{chqChequeoController.selected.ldpId}" title="#{bundle.CreateChqChequeoTitle_ldpId}" >
+                    <f:selectItems value="#{ldpListaDeProblemasController.itemsAvailableSelectOne}"/>
+                </p:selectOneMenu>
+                <h:outputLabel value="#{bundle.CreateChqChequeoLabel_cabId}" for="cabId" />
+                <p:selectOneMenu id="cabId" value="#{chqChequeoController.selected.cabId}" title="#{bundle.CreateChqChequeoTitle_cabId}" >
+                    <f:selectItems value="#{cabCabeceraController.itemsAvailableSelectOne}"/>
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <br />
+            <h:commandButton action="#{chqChequeoController.create}" value="#{bundle.CreateChqChequeoSaveLink}" />
+            <br />
+            <h:commandLink action="#{chqChequeoController.prepareList}" value="" immediate="true"/>
+            <h:link outcome="/index" value=""/>
+        </h:form>
+        </p:tab>
+        <br/>
+        <br/>
+        </p:tabView>
+    </ui:define>
+
+</ui:composition>

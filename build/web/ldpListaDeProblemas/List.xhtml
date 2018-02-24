@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLdpListaDeProblemasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListLdpListaDeProblemasEmpty}" rendered="#{ldpListaDeProblemasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{ldpListaDeProblemasController.items.rowCount > 0}">
+                    <h:outputText value="#{ldpListaDeProblemasController.pagination.pageFirstItem + 1}..#{ldpListaDeProblemasController.pagination.pageLastItem + 1}/#{ldpListaDeProblemasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandButton action="#{ldpListaDeProblemasController.previous}" value="#{bundle.Previous} #{ldpListaDeProblemasController.pagination.pageSize}" rendered="#{ldpListaDeProblemasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton action="#{ldpListaDeProblemasController.next}" value="#{bundle.Next} #{ldpListaDeProblemasController.pagination.pageSize}" rendered="#{ldpListaDeProblemasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{ldpListaDeProblemasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLdpListaDeProblemasTitle_ldpId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ldpId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLdpListaDeProblemasTitle_ldpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ldpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLdpListaDeProblemasTitle_ldpNombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ldpNombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLdpListaDeProblemasTitle_ldpDescripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ldpDescripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{ldpListaDeProblemasController.prepareView}" value=""/>
+                            <h:outputText value=" "/>
+                            <h:commandButton action="#{ldpListaDeProblemasController.prepareEdit}" value="#{bundle.ListLdpListaDeProblemasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandButton action="#{ldpListaDeProblemasController.destroy}" value="#{bundle.ListLdpListaDeProblemasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{ldpListaDeProblemasController.prepareCreate}" value=""/>
+                <br />
+                <br />
+                <h:link outcome="/index" value=""/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

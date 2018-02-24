@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateUsuUsuariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8">
+                    <h:outputLabel value="#{bundle.CreateUsuUsuariosLabel_usuId}" for="usuId" />
+                    <p:inputText id="usuId" value="#{usuUsuariosController.selected.usuId}" title="#{bundle.CreateUsuUsuariosTitle_usuId}" required="true" requiredMessage="#{bundle.CreateUsuUsuariosRequiredMessage_usuId}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuUsuariosLabel_usuUsuario}" for="usuUsuario" />
+                    <p:inputText id="usuUsuario" value="#{usuUsuariosController.selected.usuUsuario}" title="#{bundle.CreateUsuUsuariosTitle_usuUsuario}" />
+                    <h:outputLabel value="#{bundle.CreateUsuUsuariosLabel_usuClave}" for="usuClave" />
+                    <p:inputText id="usuClave" value="#{usuUsuariosController.selected.usuClave}" title="#{bundle.CreateUsuUsuariosTitle_usuClave}" />
+                    <h:outputLabel value="#{bundle.CreateUsuUsuariosLabel_rolId}" for="rolId" />
+                    <p:selectOneMenu id="rolId" value="#{usuUsuariosController.selected.rolId}" title="#{bundle.CreateUsuUsuariosTitle_rolId}" >
+                        <f:selectItems value="#{rolRolesController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{usuUsuariosController.create}" value="#{bundle.CreateUsuUsuariosSaveLink}" />
+                <br />
+                <h:commandLink action="#{usuUsuariosController.prepareList}" value="" immediate="true"/>
+                <h:link outcome="/index" value=""/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditVehVehiculosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8">
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehId}" for="vehId" />
+                    <p:inputText id="vehId" value="#{vehVehiculosController.selected.vehId}" title="#{bundle.EditVehVehiculosTitle_vehId}" required="true" requiredMessage="#{bundle.EditVehVehiculosRequiredMessage_vehId}"/>
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehMarca}" for="vehMarca" />
+                    <p:inputText id="vehMarca" value="#{vehVehiculosController.selected.vehMarca}" title="#{bundle.EditVehVehiculosTitle_vehMarca}" />
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehModelo}" for="vehModelo" />
+                    <p:inputText id="vehModelo" value="#{vehVehiculosController.selected.vehModelo}" title="#{bundle.EditVehVehiculosTitle_vehModelo}" />
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehAno}" for="vehAno" />
+                    <p:inputText id="vehAno" value="#{vehVehiculosController.selected.vehAno}" title="#{bundle.EditVehVehiculosTitle_vehAno}" />
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehNMotor}" for="vehNMotor" />
+                    <p:inputText id="vehNMotor" value="#{vehVehiculosController.selected.vehNMotor}" title="#{bundle.EditVehVehiculosTitle_vehNMotor}" />
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehMatricula}" for="vehMatricula" />
+                    <p:inputText id="vehMatricula" value="#{vehVehiculosController.selected.vehMatricula}" title="#{bundle.EditVehVehiculosTitle_vehMatricula}" />
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehColor}" for="vehColor" />
+                    <p:inputText id="vehColor" value="#{vehVehiculosController.selected.vehColor}" title="#{bundle.EditVehVehiculosTitle_vehColor}" />
+                    <h:outputLabel value="#{bundle.EditVehVehiculosLabel_vehPlaca}" for="vehPlaca" />
+                    <p:inputText id="vehPlaca" value="#{vehVehiculosController.selected.vehPlaca}" title="#{bundle.EditVehVehiculosTitle_vehPlaca}" />
+                </h:panelGrid>
+                <br/>
+                <h:commandButton action="#{vehVehiculosController.update}" value="#{bundle.EditVehVehiculosSaveLink}"/>
+                <br />
+                <h:link outcome="View" value=""/>
+                <h:commandLink action="#{vehVehiculosController.prepareList}" value="" immediate="true"/>
+                <h:link outcome="/index" value="" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

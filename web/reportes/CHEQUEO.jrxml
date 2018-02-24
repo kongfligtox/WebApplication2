@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="653e3ef7-c66c-4e2c-a6e3-807ae89cf46f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     chq_chequeo.`CHQ_ID` AS chq_chequeo_CHQ_ID,
+     chq_chequeo.`LDP_ID` AS chq_chequeo_LDP_ID,
+     chq_chequeo.`CAB_ID` AS chq_chequeo_CAB_ID,
+     chq_chequeo.`CHQ_F_INICIAL` AS chq_chequeo_CHQ_F_INICIAL,
+     chq_chequeo.`CHQ_F_FINAL` AS chq_chequeo_CHQ_F_FINAL,
+     chq_chequeo.`CHQ_ESTADO` AS chq_chequeo_CHQ_ESTADO,
+     chq_chequeo.`CHQ_DETALLE` AS chq_chequeo_CHQ_DETALLE
+FROM
+     `chq_chequeo` chq_chequeo]]>
+	</queryString>
+	<field name="chq_chequeo_CHQ_ID" class="java.lang.Integer"/>
+	<field name="chq_chequeo_LDP_ID" class="java.lang.Integer"/>
+	<field name="chq_chequeo_CAB_ID" class="java.lang.Integer"/>
+	<field name="chq_chequeo_CHQ_F_INICIAL" class="java.sql.Date"/>
+	<field name="chq_chequeo_CHQ_F_FINAL" class="java.sql.Date"/>
+	<field name="chq_chequeo_CHQ_ESTADO" class="java.lang.String"/>
+	<field name="chq_chequeo_CHQ_DETALLE" class="java.lang.String"/>
+	<group name="chq_chequeo_CAB_ID">
+		<groupExpression><![CDATA[$F{chq_chequeo_CAB_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#000000" uuid="b0675ef7-f367-4801-a78f-5699ec46e8c5"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{chq_chequeo_CAB_ID}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="b2db8578-163c-40b3-82c0-c76de871fd4e"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="223dbd53-c1c1-49f7-af06-64e06de277cb"/>
+				<imageExpression><![CDATA["leaf_banner_gray.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="69e3b279-4cfd-486a-a068-27b42ef60194"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Leaf Gray Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="117" y="46" width="157" height="22" uuid="dfd49e0b-c921-4bc4-aee9-d6c7349fc6b0"/>
+				<text><![CDATA[Leaf Gray SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="1f6cc526-7c09-4904-8ffe-61ff801353d0"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="3c06b61a-327f-4366-ba82-a52c3780cc85"/>
+				<text><![CDATA[chq_chequeo_CHQ_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="b44de046-9eef-4507-922d-c5a680680f84"/>
+				<text><![CDATA[chq_chequeo_LDP_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="10c45570-88d5-4f23-b452-b143e5338a14"/>
+				<text><![CDATA[chq_chequeo_CHQ_F_INICIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="a0f95a24-09e4-4b71-ac4c-30546d670555"/>
+				<text><![CDATA[chq_chequeo_CHQ_F_FINAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="560ee4b7-3c58-4e02-a498-1c531b8cfd8b"/>
+				<text><![CDATA[chq_chequeo_CHQ_ESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="b095f1a3-6d37-4211-8e80-aef222807f20"/>
+				<text><![CDATA[chq_chequeo_CHQ_DETALLE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="0381e5dd-c6f5-41d4-a722-2fde4fe751ae"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="dcdfc197-4489-4170-a851-10ff55156a07"/>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="567b31fc-5d3d-4267-a30c-ec42d8667209"/>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_LDP_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="0143b99e-a653-4ef4-b204-2eaf4fd445bf"/>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_F_INICIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="3d9854ea-5362-4c8c-b182-defbfa8bfb93"/>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_F_FINAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="b3a55e25-534d-4513-8058-2e546933fae4"/>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_ESTADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="ee33be16-7948-4fcf-bb1e-548e39f6fdbd"/>
+				<textFieldExpression><![CDATA[$F{chq_chequeo_CHQ_DETALLE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="7d80ea92-4b13-442a-a5a8-40f8a236f6b9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="edcff55c-0de4-40e9-954a-59a2bafe31ff"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="f2534204-6faa-43c9-9af2-f6c06eb09504"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="081af310-1a35-404a-8e4a-6fcce7c05237"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

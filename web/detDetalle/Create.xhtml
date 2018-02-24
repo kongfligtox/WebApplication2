@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetDetalleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8">
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_detId}" for="detId" />
+                    <p:inputText id="detId" value="#{detDetalleController.selected.detId}" title="#{bundle.CreateDetDetalleTitle_detId}" required="true" requiredMessage="#{bundle.CreateDetDetalleRequiredMessage_detId}"/>
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_detCantidad}" for="detCantidad" />
+                    <p:inputText id="detCantidad" value="#{detDetalleController.selected.detCantidad}" title="#{bundle.CreateDetDetalleTitle_detCantidad}" />
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_detPrecioTotal}" for="detPrecioTotal" />
+                    <p:inputText id="detPrecioTotal" value="#{detDetalleController.selected.detPrecioTotal}" title="#{bundle.CreateDetDetalleTitle_detPrecioTotal}" />
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_detVSubtotal}" for="detVSubtotal" />
+                    <p:inputText id="detVSubtotal" value="#{detDetalleController.selected.detVSubtotal}" title="#{bundle.CreateDetDetalleTitle_detVSubtotal}" />
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_detIva}" for="detIva" />
+                    <p:inputText id="detIva" value="#{detDetalleController.selected.detIva}" title="#{bundle.CreateDetDetalleTitle_detIva}" />
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_detVTotal}" for="detVTotal" />
+                    <p:inputText id="detVTotal" value="#{detDetalleController.selected.detVTotal}" title="#{bundle.CreateDetDetalleTitle_detVTotal}" />
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_proId}" for="proId" />
+                    <p:selectOneMenu id="proId" value="#{detDetalleController.selected.proId}" title="#{bundle.CreateDetDetalleTitle_proId}" >
+                        <f:selectItems value="#{proProductosController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetDetalleLabel_cabId}" for="cabId" />
+                    <p:selectOneMenu id="cabId" value="#{detDetalleController.selected.cabId}" title="#{bundle.CreateDetDetalleTitle_cabId}" >
+                        <f:selectItems value="#{cabCabeceraController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{detDetalleController.create}" value="#{bundle.CreateDetDetalleSaveLink}" />
+                <br />
+                <h:commandLink action="#{detDetalleController.prepareList}" value="" immediate="true"/>
+                <h:link outcome="/index" value=""/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

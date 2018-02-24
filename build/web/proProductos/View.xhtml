@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProProductosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProProductosLabel_proId}"/>
+                    <h:outputText value="#{proProductosController.selected.proId}" title="#{bundle.ViewProProductosTitle_proId}"/>
+                    <h:outputText value="#{bundle.ViewProProductosLabel_proNombre}"/>
+                    <h:outputText value="#{proProductosController.selected.proNombre}" title="#{bundle.ViewProProductosTitle_proNombre}"/>
+                    <h:outputText value="#{bundle.ViewProProductosLabel_proDescripcion}"/>
+                    <h:outputText value="#{proProductosController.selected.proDescripcion}" title="#{bundle.ViewProProductosTitle_proDescripcion}"/>
+                    <h:outputText value="#{bundle.ViewProProductosLabel_proPrecioUnitario}"/>
+                    <h:outputText value="#{proProductosController.selected.proPrecioUnitario}" title="#{bundle.ViewProProductosTitle_proPrecioUnitario}"/>
+                    <h:outputText value="#{bundle.ViewProProductosLabel_proCantidad}"/>
+                    <h:outputText value="#{proProductosController.selected.proCantidad}" title="#{bundle.ViewProProductosTitle_proCantidad}"/>
+                    <h:outputText value="#{bundle.ViewProProductosLabel_tdpId}"/>
+                    <h:outputText value="#{proProductosController.selected.tdpId}" title="#{bundle.ViewProProductosTitle_tdpId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{proProductosController.destroyAndView}" value=""/>
+                <h:link outcome="Edit" value=""/>
+                <h:commandLink action="#{proProductosController.prepareCreate}" value="" />
+                <h:commandLink action="#{proProductosController.prepareList}" value=""/>
+                <h:link outcome="/index" value=""/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

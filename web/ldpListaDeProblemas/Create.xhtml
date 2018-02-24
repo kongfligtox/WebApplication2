@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLdpListaDeProblemasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8">
+                    <h:outputLabel value="#{bundle.CreateLdpListaDeProblemasLabel_ldpId}" for="ldpId" />
+                    <p:inputText id="ldpId" value="#{ldpListaDeProblemasController.selected.ldpId}" title="#{bundle.CreateLdpListaDeProblemasTitle_ldpId}" required="true" requiredMessage="#{bundle.CreateLdpListaDeProblemasRequiredMessage_ldpId}"/>
+                    <h:outputLabel value="#{bundle.CreateLdpListaDeProblemasLabel_ldpCodigo}" for="ldpCodigo" />
+                    <p:inputText id="ldpCodigo" value="#{ldpListaDeProblemasController.selected.ldpCodigo}" title="#{bundle.CreateLdpListaDeProblemasTitle_ldpCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateLdpListaDeProblemasLabel_ldpNombre}" for="ldpNombre" />
+                    <p:inputText id="ldpNombre" value="#{ldpListaDeProblemasController.selected.ldpNombre}" title="#{bundle.CreateLdpListaDeProblemasTitle_ldpNombre}" />
+                    <h:outputLabel value="#{bundle.CreateLdpListaDeProblemasLabel_ldpDescripcion}" for="ldpDescripcion" />
+                    <p:inputText id="ldpDescripcion" value="#{ldpListaDeProblemasController.selected.ldpDescripcion}" title="#{bundle.CreateLdpListaDeProblemasTitle_ldpDescripcion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{ldpListaDeProblemasController.create}" value="#{bundle.CreateLdpListaDeProblemasSaveLink}" />
+                <br />
+                <h:commandLink action="#{ldpListaDeProblemasController.prepareList}" value="" immediate="true"/>
+                <h:link outcome="/index" value=""/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

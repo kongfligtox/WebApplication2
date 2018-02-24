@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCabCabeceraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8">
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabId}" for="cabId" />
+                    <p:inputText id="cabId" value="#{cabCabeceraController.selected.cabId}" title="#{bundle.CreateCabCabeceraTitle_cabId}" required="true" requiredMessage="#{bundle.CreateCabCabeceraRequiredMessage_cabId}"/>
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabTipo}" for="cabTipo" />
+                    <p:inputText id="cabTipo" value="#{cabCabeceraController.selected.cabTipo}" title="#{bundle.CreateCabCabeceraTitle_cabTipo}" />
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabNombre}" for="cabNombre" />
+                    <p:inputText id="cabNombre" value="#{cabCabeceraController.selected.cabNombre}" title="#{bundle.CreateCabCabeceraTitle_cabNombre}" />
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabFecha}" for="cabFecha" />
+                    <p:inputText id="cabFecha" value="#{cabCabeceraController.selected.cabFecha}" title="#{bundle.CreateCabCabeceraTitle_cabFecha}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:inputText>
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabRuc}" for="cabRuc" />
+                    <p:inputText id="cabRuc" value="#{cabCabeceraController.selected.cabRuc}" title="#{bundle.CreateCabCabeceraTitle_cabRuc}" />
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabTelefonos}" for="cabTelefonos" />
+                    <p:inputText id="cabTelefonos" value="#{cabCabeceraController.selected.cabTelefonos}" title="#{bundle.CreateCabCabeceraTitle_cabTelefonos}" />
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabEmail}" for="cabEmail" />
+                    <p:inputText id="cabEmail" value="#{cabCabeceraController.selected.cabEmail}" title="#{bundle.CreateCabCabeceraTitle_cabEmail}" />
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cabDireccion}" for="cabDireccion" />
+                    <p:inputText id="cabDireccion" value="#{cabCabeceraController.selected.cabDireccion}" title="#{bundle.CreateCabCabeceraTitle_cabDireccion}" />
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_vehId}" for="vehId" />
+                    <p:selectOneMenu id="vehId" value="#{cabCabeceraController.selected.vehId}" title="#{bundle.CreateCabCabeceraTitle_vehId}" >
+                        <f:selectItems value="#{vehVehiculosController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateCabCabeceraLabel_cliId}" for="cliId" />
+                    <p:selectOneMenu id="cliId" value="#{cabCabeceraController.selected.cliId}" title="#{bundle.CreateCabCabeceraTitle_cliId}" >
+                        <f:selectItems value="#{cliClientesController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{cabCabeceraController.create}" value="#{bundle.CreateCabCabeceraSaveLink}" />
+                <br />
+                <h:commandLink action="#{cabCabeceraController.prepareList}" value="" immediate="true"/>
+                <h:link outcome="/index" value=""/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

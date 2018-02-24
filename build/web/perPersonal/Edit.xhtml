@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPerPersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8">
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_perId}" for="perId" />
+                    <p:inputText id="perId" value="#{perPersonalController.selected.perId}" title="#{bundle.EditPerPersonalTitle_perId}" required="true" requiredMessage="#{bundle.EditPerPersonalRequiredMessage_perId}"/>
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_perNombres}" for="perNombres" />
+                    <p:inputText id="perNombres" value="#{perPersonalController.selected.perNombres}" title="#{bundle.EditPerPersonalTitle_perNombres}" />
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_perApellidos}" for="perApellidos" />
+                    <p:inputText id="perApellidos" value="#{perPersonalController.selected.perApellidos}" title="#{bundle.EditPerPersonalTitle_perApellidos}" />
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_perCid}" for="perCid" />
+                    <p:inputText id="perCid" value="#{perPersonalController.selected.perCid}" title="#{bundle.EditPerPersonalTitle_perCid}" />
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_perTelefonos}" for="perTelefonos" />
+                    <p:inputText id="perTelefonos" value="#{perPersonalController.selected.perTelefonos}" title="#{bundle.EditPerPersonalTitle_perTelefonos}" />
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_perEmail}" for="perEmail" />
+                    <p:inputText id="perEmail" value="#{perPersonalController.selected.perEmail}" title="#{bundle.EditPerPersonalTitle_perEmail}" />
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_perDireccion}" for="perDireccion" />
+                    <p:inputText id="perDireccion" value="#{perPersonalController.selected.perDireccion}" title="#{bundle.EditPerPersonalTitle_perDireccion}" />
+                    <h:outputLabel value="#{bundle.EditPerPersonalLabel_usuId}" for="usuId" />
+                    <p:selectOneMenu id="usuId" value="#{perPersonalController.selected.usuId}" title="#{bundle.EditPerPersonalTitle_usuId}" >
+                        <f:selectItems value="#{usuUsuariosController.itemsAvailableSelectOne}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{perPersonalController.update}" value="#{bundle.EditPerPersonalSaveLink}"/>
+                <br />
+                <h:link outcome="View" value=""/>
+                <h:commandLink action="#{perPersonalController.prepareList}" value="" immediate="true"/>
+                <h:link outcome="/index" value="" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
